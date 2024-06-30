@@ -103,25 +103,29 @@ String removeSpaces(String str) {
   return result;
 }
 
-
+int generateDecimalFromStringPositions(String inData, int start, int stop) {
+  String hexValue = removeSpaces(inData.substring(start, stop));
+  int out = strtol(hexValue.c_str(), nullptr, 16);
+  if (out & 0x8000) {
+    // If the MSB is set, adjust the value for two's complement
+    out -= 0x10000;
+  }
+  return out;
+}
 
 String parseData(String inData){
   String hexValue = inData.substring(604, 606);
-  int batteryPercent = strtol(hexValue.c_str(), nullptr, 16);
-  hexValue = removeSpaces(inData.substring(607, 613));
-  int loadPower = strtol(hexValue.c_str(), nullptr, 16);
-  hexValue = removeSpaces(inData.substring(613, 619));
-  int batteryPower = strtol(hexValue.c_str(), nullptr, 16);
-  hexValue = removeSpaces(inData.substring(619, 625));
-  int solarPower = strtol(hexValue.c_str(), nullptr, 16);
-  hexValue = removeSpaces(inData.substring(625, 631));
-  int mysteryValue = strtol(hexValue.c_str(), nullptr, 16);
-  hexValue = removeSpaces(inData.substring(631, 637));
-  int mysteryValue2 = strtol(hexValue.c_str(), nullptr, 16);
-  hexValue = removeSpaces(inData.substring(637, 643));
-  int mysteryValue3 = strtol(hexValue.c_str(), nullptr, 16);
-  //first is battery percentage, 2nd loadPower, 7th is battery power (have to see what happens when negative), 4th is likely solar
-  return String(batteryPercent) + "*" + String(loadPower) + "*" + String(batteryPower) + "*" + String(solarPower) + "*" + mysteryValue + "*" + mysteryValue2 + "*" + mysteryValue3;
+  int batteryPercent = generateDecimalFromStringPositions(inData, 604, 606);
+  int loadPower = generateDecimalFromStringPositions(inData, 607, 613);
+  int solarString2  = generateDecimalFromStringPositions(inData, 613, 619);
+  int solarString1 = generateDecimalFromStringPositions(inData, 619, 625);
+  int mysteryValue = generateDecimalFromStringPositions(inData, 625, 631);
+  int mysteryValue3 = generateDecimalFromStringPositions(inData, 631, 637);
+  int batteryPower = generateDecimalFromStringPositions(inData, 637, 643);
+  int mysteryValue4 = generateDecimalFromStringPositions(inData, 643, 649);
+  int gridPower = generateDecimalFromStringPositions(inData, 121, 127);
+  //1st is gridPower, 2nd is batteryPercentage, 3rd loadPower, 4th is battery power  (2's complement for negative), 5th and 6th are solar strings
+  return String(gridPower) + "*" + String(batteryPercent) + "*" + String(batteryPower) + "*" + String(loadPower) + "*" + String(solarString1) + "*" + solarString2 +  "*" + gridPower +  "*" + mysteryValue + "*" + mysteryValue3  + "*" + mysteryValue4;
   
 }
 
