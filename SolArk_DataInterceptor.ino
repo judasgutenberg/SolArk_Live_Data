@@ -1,13 +1,12 @@
-#include <ESP8266WiFi.h>
-#include <WiFiClient.h>
-#include <ESP8266WebServer.h>
-#include <WiFiUdp.h>
 //Gus Mueller, June 29, 2024
 //uses an ESP8266 wired with the swap serial pins (D8 as TX and D7 as RX) connected to the exposed serial header on the ESP32 in the SolArk's WiFi dongle.
 //this intercepts the communication data between the SolArk and the dongle to get frequent updates (that is, every few seconds) of the power and battery levels.
 //the data still makes it to PowerView (now MySolArk) but you have access to it much sooner, locally, and at much finer granularity
+#include <ESP8266WiFi.h>
+#include <WiFiClient.h>
+#include <ESP8266WebServer.h>
 #include "config.h"
-String serialContent = "<!DOCTYPE html><html><head><title>page!</title></head><body>Inital String</body></html>\n\n";
+String serialContent = "";
 String ipAddress;
 String goodData;
 String dataToDisplay;
