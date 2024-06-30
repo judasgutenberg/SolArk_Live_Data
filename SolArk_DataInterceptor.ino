@@ -124,7 +124,7 @@ String parseData(String inData){
   int mysteryValue4 = generateDecimalFromStringPositions(inData, 643, 649);
   int gridPower = generateDecimalFromStringPositions(inData, 121, 127);
   //1st is gridPower, 2nd is batteryPercentage, 3rd loadPower, 4th is battery power  (2's complement for negative), 5th and 6th are solar strings
-  return String(gridPower) + "*" + String(batteryPercent) + "*" + String(batteryPower) + "*" + String(loadPower) + "*" + String(solarString1) + "*" + solarString2 +  "*" + gridPower +  "*" + mysteryValue + "*" + mysteryValue3  + "*" + mysteryValue4;
+  return String(gridPower) + "*" + String(batteryPercent) + "*" + String(batteryPower) + "*" + String(loadPower) + "*" + String(solarString1) + "*" + solarString2 +  "*" + mysteryValue + "*" + mysteryValue3  + "*" + mysteryValue4;
   
 }
 
