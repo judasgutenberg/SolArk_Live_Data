@@ -114,7 +114,6 @@ int generateDecimalFromStringPositions(String inData, int start, int stop) {
 }
 
 String parseData(String inData){
-  String hexValue = inData.substring(604, 606);
   int batteryPercent = generateDecimalFromStringPositions(inData, 604, 606);
   int loadPower = generateDecimalFromStringPositions(inData, 607, 613);
   int solarString2  = generateDecimalFromStringPositions(inData, 613, 619);
