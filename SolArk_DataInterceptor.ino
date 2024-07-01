@@ -42,8 +42,8 @@ void loop() {
     if(goodDataMode) {
       if (incomingByte == '\r')
       {
-        dataToDisplay = goodData;
-        dataToDisplay += "\n" + parseData(goodData);
+        //dataToDisplay = goodData; //when you want to see the whole packet
+        dataToDisplay += "\n" + parseData(goodData); //otherwise send a *-delimited list of values
         goodData = "";
         goodDataMode = false;
       } else {
