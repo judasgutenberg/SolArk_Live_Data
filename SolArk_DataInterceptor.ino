@@ -1,5 +1,6 @@
 //Gus Mueller, June 29, 2024
 //uses an ESP8266 wired with the swap serial pins (D8 as TX and D7 as RX) connected to the exposed serial header on the ESP32 in the SolArk's WiFi dongle.
+//this means you won't get to use a serial port to help you debug, but you can still debug by looking at the web output on the web page the ESP8266 serves.
 //this intercepts the communication data between the SolArk and the dongle to get frequent updates (that is, every few seconds) of the power and battery levels.
 //the data still makes it to PowerView (now MySolArk) but you have access to it much sooner, locally, and at much finer granularity
 #include <ESP8266WiFi.h>
