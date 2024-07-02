@@ -5,6 +5,6 @@ The logic levels of that serial port is 3.3v, so they will directly connect to a
 
 ![alt text](dongle_serial.jpg?raw=true)
 
-Since the ESP8266 doesn't fully support more than one serial port, I was forced to use the webpage it serves to debug.
+Since the ESP8266 doesn't fully support more than one serial port, I was forced to use the web page it serves to debug.
 
 
