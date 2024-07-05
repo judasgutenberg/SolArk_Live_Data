@@ -7,6 +7,6 @@ The logic levels of that serial port are 3.3v, so they will directly connect to 
 
 Since the ESP8266 doesn't fully support more than one serial port, I was forced to use the web page it serves to debug.
 
-For now this sketch just produces a *-delimited list of values on the web page it serves, though you probably will want to do something else. What I do is send this data to a MySQL server to log it with a timestamp so I can see pretty (and extremely-detailed) graphs, which kick the ass of those produced by SolArk.
+For now this sketch just produces a *-delimited list of values on the web page it serves, though you probably will want to do something else. What I do is send this data to a MySQL server to log it with a timestamp so I can see pretty (and extremely-detailed) graphs, which kick the ass of those produced on the data page served by MySolArk.
 
 
