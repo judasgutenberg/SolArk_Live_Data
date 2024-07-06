@@ -1,6 +1,6 @@
 This Arduino sketch allows you to intercept data communicated between your SolArk inverter and its WiFi dongle, allowing you to get power data much more quickly and at much finer granularity locally. You can then act on this data to do things like turn EV chargers on and off.
 
-If you open up the shell of the WiFi dongle, you will find the unpopulated pin header where the serial port can be intercepted. The pins are spaced 0.2 mm apart, which is tighter than the normal 0.254 (0.1 inch) spacing.  But if you bend the pins on a three-pin 0.1-inch-pitch header and stuff it in those holes, it will hold with no soldering required and work reliably.
+If you open up the shell of the WiFi dongle, you will find the unpopulated pin header where the serial port can be intercepted. The pins are spaced 0.2 mm apart, which is tighter than the normal 0.254 mm (0.1 inch) spacing.  But if you bend the pins on a three-pin 0.1-inch-pitch header and stuff it in those holes, it will hold with no soldering required and work reliably.
 The logic levels of that serial port are 3.3v, so RX and TX can connect directly to pins on a 3.3v microcontroller.  For the wires in this photo, black is ground, green is Tx and white is Rx. They are connected to a D1 Arduino-style ESP8266 board (pin D8 is TX and pin D7 is RX). None of this affects the normal behavior of the dongle, which continues communicating data to Chinese intelligence agencies or whatever (disabling and re-enabling that remotely is something I will be exploring).
 
 ![alt text](dongle_serial.jpg?raw=true)
