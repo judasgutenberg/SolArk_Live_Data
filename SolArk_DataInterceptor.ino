@@ -30,8 +30,7 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  // send data only when you receive data:
+  //look for the packet of data containing the hex-encoded values we care about
   char incomingByte = ' ';
   String startValidIndication = "MB_real data,seg_cnt:3\r\r";
 
