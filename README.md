@@ -8,8 +8,8 @@ The logic levels of that serial port are 3.3v, so they will directly connect to 
 Since the ESP8266 doesn't fully support more than one serial port, I was forced to use the web page it serves to debug.
 
 For now this sketch just produces a *-delimited list of values on the web page it serves:
-1st is gridPower, 2nd is batteryPercentage, 3rd loadPower, 4th is battery power  (2's complement for negative), 5th and 6th are solar strings, and this is followed by some integers whose purpose I do not yet know.
-You will probably will want to do something else with the data. What I do is send this data to a MySQL server to log it with a timestamp so I can see pretty (and extremely-detailed) graphs, which put those produced on the data page served by MySolArk to shame.  I do that in using the SolArk Copilot
+  //1st is gridPower, 2nd is batteryPercentage, 3rd batteryPower (2's complement for negative), 4th is loadPower, 5th and 6th are the power produced by the two solar strings, and all this is followed by some integers whose purpose I do not yet know.
+You will probably want to do something else with the data. What I do is send this data to a MySQL server to log it with a timestamp so I can see pretty (and extremely-detailed) graphs, which put those produced on the data page served by MySolArk to shame.  I do that in using the SolArk Copilot
 
 https://github.com/judasgutenberg/SolArk_Copilot
 
