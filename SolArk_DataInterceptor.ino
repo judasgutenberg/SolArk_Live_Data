@@ -113,19 +113,40 @@ int generateDecimalFromStringPositions(String inData, int start, int stop) {
   return out;
 }
 
+
 String parseData(String inData){
+  //mysteryValues and changers are values whose meanings I haven't yet determined. i log them on the backend and try to figure them out by context
+  int firstChanger = generateDecimalFromStringPositions(inData, 7, 13);
+  int secondChanger = generateDecimalFromStringPositions(inData, 25, 31);
+  int thirdChanger = generateDecimalFromStringPositions(inData, 67, 73);
+  int fourthChanger = generateDecimalFromStringPositions(inData, 75, 81);
+  int fifthChanger = generateDecimalFromStringPositions(inData, 91, 97);
+  int sixthChanger =  generateDecimalFromStringPositions(inData, 385, 391);
+  int seventhChanger =  generateDecimalFromStringPositions(inData, 481, 487);
   int batteryPercent = generateDecimalFromStringPositions(inData, 604, 606);
   int loadPower = generateDecimalFromStringPositions(inData, 607, 613);
-  int solarString2  = generateDecimalFromStringPositions(inData, 613, 619);
-  int solarString1 = generateDecimalFromStringPositions(inData, 619, 625);
-  int mysteryValue = generateDecimalFromStringPositions(inData, 625, 631);
-  int mysteryValue3 = generateDecimalFromStringPositions(inData, 631, 637);
+  int solarString1  = generateDecimalFromStringPositions(inData, 613, 619);
+  int solarString2 = generateDecimalFromStringPositions(inData, 619, 625);
+  int mysteryValue1 = generateDecimalFromStringPositions(inData, 625, 631);
+  int mysteryValue2 = generateDecimalFromStringPositions(inData, 631, 637);
   int batteryPower = generateDecimalFromStringPositions(inData, 637, 643);
-  int mysteryValue4 = generateDecimalFromStringPositions(inData, 643, 649);
   int gridPower = generateDecimalFromStringPositions(inData, 121, 127);
-  //we end up producing a *-delimited string of values in this order:
-  //1st is gridPower, 2nd is batteryPercentage, 3rd batteryPower (2's complement for negative), 4th is loadPower, 5th and 6th are the power produced by the two solar strings
-  return String(gridPower) + "*" + String(batteryPercent) + "*" + String(batteryPower) + "*" + String(loadPower) + "*" + String(solarString1) + "*" + solarString2 +  "*" + mysteryValue + "*" + mysteryValue3  + "*" + mysteryValue4;
+  int batteryVoltage = generateDecimalFromStringPositions(inData, 595, 601);
+  int mysteryValue3 = generateDecimalFromStringPositions(inData, 643, 649);
+  //1st is gridPower, 2nd is batteryPercentage, 3rd loadPower, 4th is battery power  (2's complement for negative), 5th and 6th are solar strings
+  String out = (String)millis() + "*" + String(gridPower) + "*" + String(batteryPercent) + "*" + String(batteryPower) + "*" + String(loadPower) + "*" + String(solarString1) + "*" + (String)solarString2;
+  out += "*" + (String)batteryVoltage;
+  out += "*" + (String)mysteryValue3;
+  out += "*" + (String)mysteryValue1 + "*" + (String)mysteryValue2;
+  out += "*" + (String)firstChanger;
+  out += "*" + (String)secondChanger;
+  out += "*" + (String)thirdChanger;
+  out += "*" + (String)fourthChanger;
+  out += "*" + (String)fifthChanger;
+  out += "*" + (String)sixthChanger;
+  out += "*" + (String)seventhChanger;
   
+  //feedbackSerial.println(out);
+  return out;
 }
 
