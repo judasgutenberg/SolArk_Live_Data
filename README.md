@@ -17,7 +17,7 @@ You will probably want to do something else with the data. What I do is send it 
 
 https://github.com/judasgutenberg/SolArk_Copilot
 
-communicating with the backend of my remote control system
+communicating with data.php in the backend of my remote control system
 
 https://github.com/judasgutenberg/Esp8266_RemoteControl
 
