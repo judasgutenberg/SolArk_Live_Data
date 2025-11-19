@@ -1,3 +1,29 @@
+Note: as of November 13 2025, SolArk quietly changed their internal serial protocol, so this sketch no longer works. 
+This is what I wrote to SolArk Tech support>
+
+<blockquote>
+I had been intercepting serial data being communicated between the WiFi Dongle and the SolArk inverter for use in real-time automation on-premises (that is, not using the cloud) but a firmware update seems to have completely changed the format of this data. I have tried to write a parser for the new data but have not had success. I am asking to confirm whether such a data format change happened from a firmware dated Oct 15 2025 and whether anything can be done to restore the old firmware.
+</blockquote
+
+  Here was their response:
+<blockquote>
+
+Thank you for reaching out, and I appreciate the detailed explanation of what you are trying to accomplish.
+
+I do want to clarify a few important points regarding the Wi-Fi dongle and the data stream you were previously accessing.
+
+1. The firmware update did change the internal serial data format
+Yes, beginning with the October 15, 2025 firmware release, the internal communication protocol between the Wi-Fi dongle and the inverter was updated. This update included packet restructuring, encapsulation changes, and data-handling improvements. Because this is an internal communication channel, the format is not guaranteed to remain fixed from one firmware version to another.
+
+2. The internal serial stream is not a supported interface
+The UART/serial data exchanged between the dongle and the inverter is considered an internal protocol. It is not documented, and it can change at any time as part of normal firmware development. For this reason, engineering does not provide or support access to that stream for third-party automation.
+
+3. Firmware rollback is not available
+We are not able to roll dongles or inverters back to older firmware versions. All units automatically move forward in order to maintain system stability, cybersecurity, and compliance.
+
+</blockquote>
+
+
 This Arduino sketch allows you to intercept data communicated between your SolArk inverter and its WiFi dongle, allowing you to get power data much more quickly and at much finer granularity locally. You can then act on this data to do things like turn EV chargers on and off.
 
 If you open up the shell of the WiFi dongle, you will find the unpopulated pin header where the serial port can be intercepted. The pins are spaced 0.2 mm apart, which is tighter than the normal 0.254 mm (0.1 inch) spacing.  But if you bend the pins inward on a three-pin 0.1-inch-pitch header and stuff it in those holes, it will hold with no soldering required and work reliably.
