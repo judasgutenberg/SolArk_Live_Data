@@ -1,5 +1,6 @@
-Note: as of November 13 2025, SolArk quietly changed their internal serial protocol, so this sketch no longer works. 
-This is what I wrote to SolArk Tech support>
+Note: as of November 13 2025, SolArk quietly changed their internal serial protocol, so this sketch no longer works.
+However, I do have parsing working once more in the SolArk Copilot.  See: <a href=https://github.com/judasgutenberg/SolArk_Copilot target=solarc>SolArk Copilot</a>
+This is what I wrote to SolArk Tech support:
 
 <blockquote>
 I had been intercepting serial data being communicated between the WiFi Dongle and the SolArk inverter for use in real-time automation on-premises (that is, not using the cloud) but a firmware update seems to have completely changed the format of this data. I have tried to write a parser for the new data but have not had success. I am asking to confirm whether such a data format change happened from a firmware dated Oct 15 2025 and whether anything can be done to restore the old firmware.
