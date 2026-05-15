@@ -1,5 +1,5 @@
 Note: as of November 13 2025, SolArk quietly changed their internal serial protocol, so this sketch no longer works.
-However, I do have parsing working once more in the SolArk Copilot.  See: <a href=https://github.com/judasgutenberg/SolArk_Copilot target=solarc>SolArk Copilot</a>
+However, I do have parsing working once more in the SolArk Copilot, and that parsing system is configurable without requiring firmware changes.  See: <a href=https://github.com/judasgutenberg/SolArk_Copilot target=solarc>SolArk Copilot</a>
 
 This is what I wrote to SolArk Tech support:
 
